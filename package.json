@@ -1,0 +1,27 @@
+{
+  "name": "imobiliaria-sinum",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Plataforma da Sinum Empreendimentos Imobiliarios. Site publico + sistema de gestao.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:site": "npm run dev --workspace @imob/site",
+    "dev:app": "npm run dev --workspace @imob/app",
+    "build:site": "npm run build --workspace @imob/site",
+    "build:app": "npm run build --workspace @imob/app",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "db:types": "supabase gen types typescript --linked > packages/db/src/database.types.ts",
+    "assets": "node scripts/sincronizar-assets.mjs",
+    "cf:build:site": "npm run cf:build --workspace @imob/site",
+    "cf:deploy:site": "npm run cf:deploy --workspace @imob/site",
+    "cf:build:app": "npm run cf:build --workspace @imob/app",
+    "cf:deploy:app": "npm run cf:deploy --workspace @imob/app"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
